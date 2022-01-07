@@ -187,7 +187,6 @@ object Ansi:
       string.string == t"" && string.escapes.isEmpty && last.isEmpty && stack.isEmpty
 
   object Interpolator extends contextual.Interpolator[Input, State, AnsiString]:
-    erased given CanThrow[OutOfRangeError] = compiletime.erasedValue
     def initial: State = State(AnsiString(t""), None, Nil)
 
     private def closures(state: State, str: Text): State =
